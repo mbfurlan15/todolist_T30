@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arrPessoas = []
+        arrPessoas.push({nome: "Jão", sobreNome: "da Silva"})
+        arrPessoas.push({nome: "Jão", sobreNome: "de Souza"})
+        arrPessoas.push({nome: "Jão", sobreNome: "dos Santos"})
+        arrPessoas.push({nome: "Maria", sobreNome: "Aparecida da Silva"})
+        arrPessoas.push({nome: "Maria", sobreNome: "Aparecida de Souza"})
+
+        function buscarPorNome (nome){
+            let arrTemp= []
+            for(let i = 0; i<arrPessoas.length; i++){
+                if (arrPessoas[i].nome==nome){
+                    arrTemp.push(arrPessoas[i]);
+                }
+                
+            }
+            return arrTemp
+        }
+
+        let filtro1 = buscarPorNome("Jão");
+        let filtro2 = buscarPorNome("Maria");
+        let filtro3 = buscarPorNome("Zé");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
