@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoList</title>
+    <script type="module">
+        import Controller from "./controller.js";
+        window.controller = new Controller();
+    </script>
+</head>
+<body>
+    <h1>To Do List</h1>
+    <div><input type="text" id="desc">
+    <button onclick="controller.aoClicarNoCadastrar()">+</button></div>
+    <div><h2>Tarefas a fazer</h2>
+    <div id="naofeitas"></div>
+</div>
+    <div><h2>Tarefas feitas</h2>
+        <div id="feitas"></div>
+    </div>
+    <div>
+        <img width="15 px" src="./icons/trash.png" onclick="">
+    </div>
+</body>
+</html>
