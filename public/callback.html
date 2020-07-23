@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call Back</title>
+</head>
+<script>
+//Princípio do callback
+/*     function somar (n1, n2, t){
+        let s = n1+n2
+        if (t == 'a'){
+            window.alert(s);
+        }else if (t == 'c'){
+                console.log(s)
+            } else {
+                console.log("parâmetro inválido")
+        }
+        
+    } */
+
+    //Funções a variáveis
+/*  var somar = function  (n1, n2){
+        let sum = n1+n2
+        window.alert(sum)
+        }
+var subtrair = function  (n1, n2){
+        let sub = n1-n2
+        window.alert(sub)
+        }
+     */
+
+     //functions em objetos
+     /* var calculadora = {
+         somar: function(n1, n2){
+            let sum = n1+n2
+        window.alert(sum)  
+         },
+         subtrair: function  (n1, n2){
+        let sub = n1-n2
+        window.alert(sub)
+        }
+     };
+
+     calculadora.somar(10,40);
+     calculadora.subtrair(10,40) */
+
+     //
+     var calculadora = {
+         somar: function(n1, n2,c){
+        let sum = n1+n2
+        c(sum)  //callback
+         },
+         subtrair: function  (n1, n2,c){
+        let sub = n1-n2
+        c(sub) //callback
+        }
+     };
+
+     calculadora.somar(10,40, function(r){
+         window.alert(r)
+     });
+     calculadora.subtrair(10,40, function(r){
+         console.log(r)
+     }) 
+
+
+    
+    </script>
+<body>
+    
+</body>
+<script>
+    calculadora.subtrair(10,40, function(r){
+         document.body.innerHTML= r;
+     }) 
+
+</script>
+</html>

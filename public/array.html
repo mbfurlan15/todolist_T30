@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+    <script>
+    // conceito do filtro, aprendendo a usar o .filter de um array
+/*         var numbers = [10,11,15,17,18, 20,23,28,29, 30,35,37,38,40,42,44,45, 50,51,52]
+       //console.dir(numbers);
+       var todos = numbers.filter(function(v){
+           return v;
+           });
+        var pares = numbers.filter(function(v){
+        if (v%2==0) return v;
+        });
+        var impares = numbers.filter(function(v){
+        if (v%2!=0) return v;
+        });
+
+           console.log(todos)
+           console.log(pares)
+           console.log(impares)
+ */
+
+        //Aprendendo a filtrar cadastros de um array
+        var contatos = [{nome: 'João da Silva',sexo: 'm', idade:35},
+        {nome: 'Maria da Silva',sexo: 'f',idade:23},
+        {nome: 'Fernando Gomes',sexo: 'm',idade:29},
+        {nome: 'Enzo Davila',sexo: 'm',idade:13},
+        {nome: 'Adriana Souza',sexo: 'f',idade:15},
+        {nome: 'Naiara Souza',sexo: 'f',idade:21}]
+        // Mulheres
+        var mulher = contatos.filter(function(v){
+            if (v.sexo=='f') return v
+        })
+        console.log(mulher)
+
+        //Homens
+        var homem = contatos.filter(function(v){
+            if (v.sexo=='m') return v
+        })
+        console.log(homem)
+
+        // Maior de 18 anos
+        var maior = contatos.filter(function(v){
+            if (v.idade>=18) return v
+        })
+        console.log(maior)
+
+        //Menor de 18 anos
+        var menor = contatos.filter(function(v){
+            if (v.idade<18) return v
+        })
+        console.log(menor)
+
+        //Por nome ou sobrenome "Souza" "Silva" ....
+        function buscar(){
+        let busca = document.getElementById("buscanome").value;
+        var pornome = contatos.filter(function(v){
+            if (v.nome.toUpperCase().indexOf(busca.toUpperCase().trim())>-1) return v
+        })
+        console.log(pornome)
+    }
+
+    </script>
+</head>
+<body>
+    <input type="text" id="buscanome">
+    <button onclick="buscar()">Buscar</button>
+    
+</body>
+</html>
