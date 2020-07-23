@@ -11,22 +11,26 @@ export default class Tarefas{
         this.contarid++
     }
     buscarTodosNaoFeitos(){
-        let arrNaoFeitos = []
-        for(let i=0; i<this.arrTarefas.length;i++){
+        let arrNaoFeitos = this.arrTarefas.filter(function (f){
+            if (f.feito == false) return f
+        })//[]
+/*         for(let i=0; i<this.arrTarefas.length;i++){
             if(this.arrTarefas[i].feito==false){
                 arrNaoFeitos.push(this.arrTarefas[i])
             }
-        }
+        } */
         return arrNaoFeitos
     }
 
     buscarTodosFeitos(){
-        let arrFeitos = []
+        let arrFeitos = this.arrTarefas.filter(function (f){
+            if (f.feito == true) return f
+        })/*[]
         for(let i=0; i<this.arrTarefas.length;i++){
             if(this.arrTarefas[i].feito==true){
                 arrFeitos.push(this.arrTarefas[i])
             }
-        }
+        }*/
         return arrFeitos
     }
     excluirTarefa(id){
@@ -53,4 +57,28 @@ export default class Tarefas{
             }else{}
         }
     }
+    filtrarPorPesquisa(buscador){
+        var filtrado = this.arrTarefas.filter(function (f){
+            if (f.desc.toUpperCase().indexOf(buscador.toUpperCase().trim())>-1) return f
+        })
+        return filtrado
+    }
+
+    //pensar melhor!
+    editarTarefa(id){
+        let salvar = this.contarid;
+        this.contarid = id;
+
+        //buscar posição do id e alimentar a variável posicao
+
+        alterarDado(posicao, descricao)
+        this.contarid = salvar
+        }
+    alterarDado(posicao, descricao){
+    this.arrTarefas[posicao] = {id: this.contarid, desc: descricao,feito: this.feito};
+    this.contarid++
+    }    
+
+
+
     }

@@ -10,8 +10,16 @@ export default class Controller{
         this.limpForm()
         this.listar()
     }
+    aoClicarEmPesquisar(){
+        let buscador = document.getElementById("buscador").value;
+        let arr = this.tarefas.filtrarPorPesquisa(buscador);
+        this.listarFiltrado(arr)
+        this.limpForm()
+    }
+
     limpForm(){
         document.getElementById("desc").value=""
+        document.getElementById("buscador").value=""
     }
 
     listar(){
@@ -33,5 +41,14 @@ export default class Controller{
             <img width="15 px" src="./icons/checkX.png" onclick="controller.tarefas.retornarTarefa(${listaFeitos[i].id});controller.listar()"> </div>`
         }
 
+    }
+    listarFiltrado(arr){
+        let arrFiltrado = arr;
+        let divText = document.getElementById("lista-pesquisados");
+        divText.innerHTML =""
+        for(let i=0;i<arrFiltrado.length;i++){
+            divText.innerHTML += `<div>${arrFiltrado[i].id} | ${arrFiltrado[i].desc} | 
+            <img width="15 px" src="./icons/trash.png" onclick="controller.tarefas.excluirTarefa(${arrFiltrado[i].id});controller.listar()"> </div>`
+        }    
     }
 }
