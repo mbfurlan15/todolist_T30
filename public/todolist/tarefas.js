@@ -10,8 +10,9 @@ export default class Tarefas{
         this.arrTarefas.push({id: this.contarid, desc: descricao,feito: this.feito});
         this.contarid++
     }
-    buscarTodosNaoFeitos(){
-        let arrNaoFeitos = this.arrTarefas.filter(function (f){
+    buscarTodosNaoFeitos(array){
+        if (array==null) {array=this.arrTarefas }else {array = array};
+        let arrNaoFeitos = array.filter(function (f){
             if (f.feito == false) return f
         })//[]
 /*         for(let i=0; i<this.arrTarefas.length;i++){
@@ -22,8 +23,9 @@ export default class Tarefas{
         return arrNaoFeitos
     }
 
-    buscarTodosFeitos(){
-        let arrFeitos = this.arrTarefas.filter(function (f){
+    buscarTodosFeitos(array){
+        if (array==null) {array=this.arrTarefas }else {array = array};
+        let arrFeitos = array.filter(function (f){
             if (f.feito == true) return f
         })/*[]
         for(let i=0; i<this.arrTarefas.length;i++){
@@ -64,21 +66,21 @@ export default class Tarefas{
         return filtrado
     }
 
-    //pensar melhor!
-    editarTarefa(id){
+    
+    editarTarefa(idbusca, descricao, feitocad){
         let salvar = this.contarid;
-        this.contarid = id;
+        this.contarid = idbusca;
+        
+        let posicao = this.buscarPorID(idbusca)
 
-        //buscar posição do id e alimentar a variável posicao
-
-        alterarDado(posicao, descricao)
+        this.arrTarefas[posicao] = {id: this.contarid, desc: descricao,feito: feitocad};
+    
         this.contarid = salvar
         }
-    alterarDado(posicao, descricao){
-    this.arrTarefas[posicao] = {id: this.contarid, desc: descricao,feito: this.feito};
-    this.contarid++
-    }    
-
-
-
+    buscarPorID(idbusca){
+        let posicao
+        for (let i=0; i<this.arrTarefas.length;i++){
+            if (this.arrTarefas[i].id == idbusca) posicao= i
+        } return posicao
+    }
     }

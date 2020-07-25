@@ -12,17 +12,22 @@
 <body>
     <h1>To Do List</h1>
     <div><input type="text" id="desc">
-    <button onclick="controller.aoClicarNoCadastrar()">+</button></div>
-    <div><h2>Tarefas a fazer</h2>
-    <div id="naofeitas"></div>
+    <div id="button"><button onclick="controller.aoClicarNoCadastrar()">+</button></div>
 </div>
-    <div><h2>Tarefas feitas</h2>
-        <div id="feitas"></div>
-    </div>
-<div>
+
+<div><h2>Filtrar tarefas</h2>
       <input type="text" id="buscador">
-      <button onclick="controller.aoClicarEmPesquisar()">Pesquisar</button><br>
+      <button onclick="controller.aoClicarEmPesquisar()" >Pesquisar</button><br>
       <div id="lista-pesquisados"></div>
     </div>
+
+    <div><h3>Tarefas a fazer</h3>
+    <div id="naofeitas"></div>
+    </div>
+
+    <div><h3>Tarefas feitas</h3>
+        <div id="feitas"></div>
+    </div>
+    
 </body>
 </html>
